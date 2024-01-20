@@ -21,7 +21,6 @@ class LoginController extends Controller
  
         $user = User::updateOrCreate([
             'google_id' => $user->id,
-        ], [
             'name' => $user->name,
             'email' => $user->email,
             'password' => Hash::make('password'),
@@ -31,6 +30,6 @@ class LoginController extends Controller
      
         Auth::login($user);
      
-        return  view('Dashboard');
+        return  view('Home');
     }
 }
