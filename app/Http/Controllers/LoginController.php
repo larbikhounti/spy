@@ -18,18 +18,22 @@ class LoginController extends Controller
     public function handleCallback()
     {
         $user = Socialite::driver('google')->stateless()->user();
- 
-        $user = User::updateOrCreate([
-            'google_id' => $user->id,
-            'name' => $user->name,
-            'email' => $user->email,
-            'password' => Hash::make('password'),
-            'google_token' => $user->token,
-            'google_refresh_token' => $user->refreshToken,
-        ]);
-     
-        Auth::login($user);
-     
+        
+        if (User::where('email', $user->email)->exists()) {
+            $user = User::where('email', $user->email)->first();
+            Auth::login($user);
+        }
+        else {
+            $user = User::create([
+                'google_id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'password' => Hash::make('password'),
+                'google_token' => $user->token,
+                'google_refresh_token' => $user->refreshToken,
+            ]);
+            Auth::login($user);
+        }
         return  view('Home');
     }
 }
