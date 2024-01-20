@@ -27,7 +27,6 @@
                     @auth
                     <p class="mx-3">{{ Auth()->user()->email}}</p>
                     <a href="{{ route('dashboard')}}" class="inline-flex bg-blue-500 items-center justify-center w-full px-10 py-2 text-md font-medium text-center text-white border border-red-200 rounded-lg sm:w-auto focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
-                      
                         Log out
                     </a>
                     @endauth
