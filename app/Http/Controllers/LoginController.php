@@ -34,6 +34,12 @@ class LoginController extends Controller
             ]);
             Auth::login($user);
         }
-        return  view('Home');
+        return  redirect('dashboard');
+    }
+
+    public function logOut()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

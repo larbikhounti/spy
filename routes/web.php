@@ -21,9 +21,11 @@ Route::get('/', function () {
 
 Route::get('/google/redirect', [LoginController::class, 'redirect'])->name('google.redirect');
 Route::get('/login/callback', [LoginController::class, 'handleCallback'])->name('google.callback');
-
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/logout', [LoginController::class, 'logOut'])->name('google.logout');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+

@@ -1,0 +1,8 @@
+
+what the bot should do ?
+
+    1 - get the link of the landing page.
+    2 - visit the landing page
+    3 - take a screenshot and save it 
+    4 - save the landing page by the user id
+    5 - redo the proccess again with every country he choosed
