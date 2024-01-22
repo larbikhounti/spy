@@ -55,39 +55,19 @@
                         </div>
                         <ul class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
                             aria-labelledby="dropdownSearchButton">
+                            @foreach ($countries as $country)
                             <li>
                                 <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    <input id="checkbox-item-11" type="checkbox" value=""
+                                    <input id="checkbox-item-11" type="checkbox" value="" name="country[]"
                                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
                                     <label for="checkbox-item-11"
-                                        class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">qatar</label>
+                                        class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">
+                                        {{$country->name}}
+                                    </label>
                                 </div>
                             </li>
-                            <li>
-                                <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    <input checked id="checkbox-item-12" type="checkbox" value=""
-                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="checkbox-item-12"
-                                        class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Saudi
-                                        arabia</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    <input id="checkbox-item-13" type="checkbox" value=""
-                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="checkbox-item-13"
-                                        class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">kowait</label>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
-                                    <input id="checkbox-item-14" type="checkbox" value=""
-                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
-                                    <label for="checkbox-item-14"
-                                        class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">united
-                                        states</label>
-                                </div>
+                      @endforeach
+                               
                         </ul>
                     </div>
                 </form>
@@ -97,6 +77,7 @@
     </section>
     <section class="w-screen ">
         <div class="grid grid-cols-3 gap-4 text-center ">
+
             <div class="">
                 <div
                     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
