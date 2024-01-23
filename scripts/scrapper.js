@@ -10,15 +10,16 @@ const url = process.argv[2];
 const user_id = process.argv[3];
 const country = process.argv[4].split(' ');
 
-
+let result = [];
 for (let i = 0; i < country.length; i++) {
     let dir =  `../public/images/${user_id}/${country[i]}`;
     if (fs.existsSync(dir)){
-        console.log('removing old screenshot');
-        fs.unlinkSync(`${dir}/screenshot.png`);
+        //console.log('removing old screenshot');
+        if (fs.existsSync(`${dir}/screenshot.png`))
+            fs.unlinkSync(`${dir}/screenshot.png`);
     }
     if (!fs.existsSync(dir)){
-        console.log('directory does not exist, creating one');
+        
         mkdirp.sync(dir);
     }
     (async () => {
@@ -29,6 +30,7 @@ for (let i = 0; i < country.length; i++) {
             { path: `${dir}/screenshot.png` , fullPage: true}
         );
         await browser.close();
-        console.log('Screenshot captured successfully.');
     })();
+    result.push(country[i]);
 }
+console.log(result);
