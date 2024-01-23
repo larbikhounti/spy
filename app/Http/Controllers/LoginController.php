@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -33,6 +35,7 @@ class LoginController extends Controller
                 'google_refresh_token' => $user->refreshToken,
             ]);
             Auth::login($user);
+            $this->createUserDirecrotory($user->id);
         }
         return  redirect('dashboard');
     }
@@ -41,5 +44,15 @@ class LoginController extends Controller
     {
         Auth::logout();
         return redirect('/');
+    }
+
+    public function createUserDirecrotory($user_id)
+    {
+        $path = 'images/' . $user_id ;
+
+        if(! Storage::exists($path)) {
+            Storage::makeDirectory($path, 0775, true); 
+        
+        } 
     }
 }
