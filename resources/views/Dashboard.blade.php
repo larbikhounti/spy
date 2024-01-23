@@ -66,7 +66,7 @@
                                 class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                 <a href="#">
                                     <img class="rounded-t-lg hover:h-50 hover:w-96 object-cover  h-48 w-96 "
-                                        src="{{ asset('images/demoimages/image1.png') }}" alt="" />
+                                        src="{{ asset('storage/images/4/1/screenshot.png') }}" alt="" />
                                 </a>
                                 <div class="p-5">
                                     <a href="#">

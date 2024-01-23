@@ -16,7 +16,7 @@ class CaptureScreenshot extends Command
     {
         $url = $this->argument('url');
         $user_id = $this->argument('user_id');
-        $country = implode(' ',$this->argument('country'));
+        $country = implode(' ',$this->argument('country')); // $country is an array of country ids separated by space
         $process = new Process([
             'node',
             base_path('scripts/scrapper.js'),

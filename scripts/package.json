@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "mkdirp": "^3.0.1",
     "puppeteer": "^21.7.0"
   }
 }
