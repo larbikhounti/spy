@@ -11,6 +11,7 @@ const user_id = process.argv[3];
 const country = process.argv[4].split(' ');
 
 let result = [];
+const browser = async () => await puppeteer.launch({ headless: true});
 for (let i = 0; i < country.length; i++) {
     let dir =  `../public/images/${user_id}/${country[i]}`;
     if (fs.existsSync(dir)){
@@ -22,15 +23,25 @@ for (let i = 0; i < country.length; i++) {
         
         mkdirp.sync(dir);
     }
-    (async () => {
-        const browser = await puppeteer.launch({ headless: true});
-        const page = await browser.newPage();
+   
+   
+ 
+   takeScreenShot(dir, url)
+   
+    result.push(country[i]);
+}
+
+
+async function takeScreenShot(dir, url) {
+
+        const brows = await browser();
+        const page = await brows.newPage();
         await page.goto(url);
         await page.screenshot(
             { path: `${dir}/screenshot.png` , fullPage: true}
         );
-        await browser.close();
-    })();
-    result.push(country[i]);
+        await brows.close();
+        
+       
 }
 console.log(result);
