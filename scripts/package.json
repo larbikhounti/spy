@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "mkdirp": "^3.0.1",
-    "puppeteer": "^21.7.0"
+    "puppeteer": "^21.7.0",
+    "socks-proxy-agent": "^8.0.2"
   }
 }

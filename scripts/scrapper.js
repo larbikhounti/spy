@@ -11,7 +11,17 @@ const user_id = process.argv[3];
 const country = process.argv[4].split(' ');
 
 let result = [];
-const browser = async () => await puppeteer.launch({ headless: true});
+const proxyServer = 'http://20.219.183.188:3129';
+const proxyOptions = {
+    host: '91.202.230.219',
+    port: 8080,
+    type: 1, // SOCKS4 proxy type
+  };
+const browser = async () => await puppeteer.launch(
+    { headless: true,
+     args: [`--proxy-server=${proxyServer}`],
+     ignoreHTTPSErrors: true,}
+    );
 for (let i = 0; i < country.length; i++) {
     let dir =  `../public/images/${user_id}/${country[i]}`;
     if (fs.existsSync(dir)){

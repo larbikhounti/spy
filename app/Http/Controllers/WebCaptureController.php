@@ -19,7 +19,7 @@ class WebCaptureController extends Controller
            
             $countryIds = $this->stringToArray($this->runScrapingProccess($request));
             // Process the output or return it as needed
-            $test = [1,2];
+           
             //return redirect('dashboard')->with('test', $test);
             return response()->view('dashboard', [
                 'countryList' => Country::whereIn('id', $countryIds)->get(),
@@ -45,6 +45,7 @@ class WebCaptureController extends Controller
             'user_id' => Auth()->user()->id,
             'country' => $request->country,
         ]);
+       //dd(Artisan::output());
         return Artisan::output();
 
     }
